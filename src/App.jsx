@@ -366,7 +366,7 @@ export default function RowVentures() {
                   </div>
                   {formStatus === 'error' && (
                     <p style={{ fontSize: 13, color: '#B05050', marginTop: 16, letterSpacing: '.03em', lineHeight: 1.6 }}>
-                      We're having trouble receiving messages right now. Please email us directly at sarah@row-ventures.com or hannah@row-ventures.com.
+                      We're having trouble receiving messages right now. Please email us directly at hello@row-ventures.com.
                     </p>
                   )}
                   <button type="submit" className="btn-row" disabled={formStatus === 'submitting'} style={{ marginTop: 28, width: '100%', padding: 16, opacity: formStatus === 'submitting' ? 0.5 : 1, cursor: formStatus === 'submitting' ? 'wait' : 'pointer' }}>
