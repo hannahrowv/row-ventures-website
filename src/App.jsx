@@ -3,6 +3,8 @@ import { ChevronDown } from 'lucide-react';
 
 export default function RowVentures() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [formStatus, setFormStatus] = useState('idle'); // idle | submitting | success | error
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -12,6 +14,26 @@ export default function RowVentures() {
 
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   const openCalendly = () => window.open('https://calendly.com/row-ventures', '_blank');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    try {
+      const res = await fetch('https://formspree.io/f/xdawoerd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', company: '', message: '' });
+      } else {
+        setFormStatus('error');
+      }
+    } catch {
+      setFormStatus('error');
+    }
+  };
 
   return (
     <div className="w-full overflow-x-hidden" style={{ background: '#05091A', color: '#E2EAF5', fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
@@ -313,17 +335,45 @@ export default function RowVentures() {
             </div>
             <div>
               <p style={{ fontSize: 10, fontWeight: 300, letterSpacing: '.22em', textTransform: 'uppercase', color: '#334D6E', marginBottom: 0 }}>Or send us a note</p>
-              <form style={{ display: 'flex', flexDirection: 'column' }}>
-                {[['text','Name'],['email','Email'],['text','Company / stage (e.g. pre-seed, seed)']].map(([type, ph], i) => (
-                  <div key={i} style={{ borderBottom: '1px solid #102040', ...(i === 0 ? { borderTop: '1px solid #102040' } : {}) }}>
-                    <input type={type} placeholder={ph} style={{ width: '100%', background: 'transparent', border: 'none', outline: 'none', padding: '20px 0', fontFamily: 'Inter, sans-serif', fontWeight: 300, fontSize: 14, color: '#E2EAF5', letterSpacing: '.04em' }}/>
-                  </div>
-                ))}
-                <div style={{ borderBottom: '1px solid #102040' }}>
-                  <textarea rows={4} placeholder="What are you working on, and what do you need help with?" style={{ width: '100%', background: 'transparent', border: 'none', outline: 'none', padding: '20px 0', fontFamily: 'Inter, sans-serif', fontWeight: 300, fontSize: 14, color: '#E2EAF5', letterSpacing: '.04em', resize: 'none' }}/>
+              {formStatus === 'success' ? (
+                <div style={{ borderTop: '1px solid #102040', paddingTop: 40, paddingBottom: 40 }}>
+                  <p className="serif" style={{ fontSize: 22, fontStyle: 'italic', color: '#C4A87A', marginBottom: 12 }}>Message received.</p>
+                  <p style={{ fontSize: 14, color: '#7390B8', lineHeight: 1.75 }}>Thanks for reaching out — we'll be in touch shortly.</p>
                 </div>
-                <button type="submit" className="btn-row" style={{ marginTop: 28, width: '100%', padding: 16 }}>Send message</button>
-              </form>
+              ) : (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+                  {[
+                    ['text','Name','name'],
+                    ['email','Email','email'],
+                    ['text','Company / stage (e.g. pre-seed, seed)','company'],
+                  ].map(([type, ph, field], i) => (
+                    <div key={field} style={{ borderBottom: '1px solid #102040', ...(i === 0 ? { borderTop: '1px solid #102040' } : {}) }}>
+                      <input
+                        type={type} placeholder={ph} name={field} required={field !== 'company'}
+                        value={formData[field]}
+                        onChange={e => setFormData(d => ({ ...d, [field]: e.target.value }))}
+                        style={{ width: '100%', background: 'transparent', border: 'none', outline: 'none', padding: '20px 0', fontFamily: 'Inter, sans-serif', fontWeight: 300, fontSize: 14, color: '#E2EAF5', letterSpacing: '.04em' }}
+                      />
+                    </div>
+                  ))}
+                  <div style={{ borderBottom: '1px solid #102040' }}>
+                    <textarea
+                      rows={4} placeholder="What are you working on, and what do you need help with?" name="message" required
+                      value={formData.message}
+                      onChange={e => setFormData(d => ({ ...d, message: e.target.value }))}
+                      style={{ width: '100%', background: 'transparent', border: 'none', outline: 'none', padding: '20px 0', fontFamily: 'Inter, sans-serif', fontWeight: 300, fontSize: 14, color: '#E2EAF5', letterSpacing: '.04em', resize: 'none' }}
+                    />
+                  </div>
+                  {formStatus === 'error' && (
+                    <p style={{ fontSize: 13, color: '#B05050', marginTop: 16, letterSpacing: '.03em', lineHeight: 1.6 }}>
+                      We're having trouble receiving messages right now. Please email us directly at sarah@row-ventures.com or hannah@row-ventures.com.
+                    </p>
+                  )}
+                  <button type="submit" className="btn-row" disabled={formStatus === 'submitting'} style={{ marginTop: 28, width: '100%', padding: 16, opacity: formStatus === 'submitting' ? 0.5 : 1, cursor: formStatus === 'submitting' ? 'wait' : 'pointer' }}>
+                    {formStatus === 'submitting' ? 'Sending...' : 'Send message'}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
