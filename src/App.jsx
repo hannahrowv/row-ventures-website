@@ -13,7 +13,7 @@ export default function RowVentures() {
   }, []);
 
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  const openCalendly = () => window.open('https://calendly.com/row-ventures', '_blank');
+  const openCalendly = () => window.open('https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1zyC_iXGATumFHM1UdMmjBeb-JjBkyK45-RXkOqTHKPrYX2BubM_zs8jyRQZEXCx7n_HiVCGCa', '_blank');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
