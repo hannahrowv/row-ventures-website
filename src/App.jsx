@@ -325,9 +325,7 @@ export default function RowVentures() {
             <div>
               <p style={{ fontSize: 10, fontWeight: 300, letterSpacing: '.22em', textTransform: 'uppercase', color: '#334D6E', marginBottom: 16 }}>Direct contact</p>
               <div style={{ marginBottom: 44 }}>
-                {['sarah@row-ventures.com','hannah@row-ventures.com'].map(e => (
-                  <a key={e} href={`mailto:${e}`} style={{ display: 'block', fontSize: 15, color: '#7390B8', textDecoration: 'none', padding: '7px 0', letterSpacing: '.04em' }}>{e}</a>
-                ))}
+                <a href="mailto:hello@row-ventures.com" style={{ display: 'block', fontSize: 15, color: '#7390B8', textDecoration: 'none', padding: '7px 0', letterSpacing: '.04em' }}>hello@row-ventures.com</a>
               </div>
               <p style={{ fontSize: 10, fontWeight: 300, letterSpacing: '.22em', textTransform: 'uppercase', color: '#334D6E', marginBottom: 16 }}>Schedule time</p>
               <button onClick={openCalendly} className="btn-row">Book a 30-min discovery call</button>
