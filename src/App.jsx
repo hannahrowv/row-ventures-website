@@ -335,6 +335,93 @@ export default function App() {
         @keyframes rv-fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes rv-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         @keyframes rv-pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+
+        @media (max-width: 768px) {
+          /* Hide custom cursor on touch devices */
+          .rv-cursor, .rv-cursor-ring { display: none; }
+          * { cursor: auto !important; }
+
+          /* Nav */
+          .rv-nav { padding: 20px 24px; }
+          .rv-nav-links { display: none; }
+          .rv-nav-cta { display: none; }
+          .rv-nav-logo { font-size: 14px; }
+
+          /* Hero */
+          .rv-hero { grid-template-columns: 1fr; min-height: 100svh; }
+          .rv-hero-left { padding: 120px 28px 80px; justify-content: flex-end; }
+          .rv-hero-right { display: none; }
+          .rv-hero-headline { font-size: clamp(40px, 11vw, 60px); margin-bottom: 24px; }
+          .rv-hero-sub { font-size: 14px; margin-bottom: 40px; max-width: 100%; }
+          .rv-hero-actions { flex-direction: column; align-items: flex-start; gap: 18px; }
+          .rv-scroll-hint { display: none; }
+
+          /* Marquee */
+          .rv-marquee-wrap { padding: 14px 0; }
+
+          /* Who we serve */
+          .rv-who { padding: 72px 28px; grid-template-columns: 1fr; gap: 52px; }
+          .rv-sec-title { font-size: clamp(28px, 8vw, 42px); }
+
+          /* Stats boxes */
+          .rv-who-right { gap: 1px; }
+          .rv-wsb { padding: 28px 24px; }
+          .rv-wsb-num { font-size: 32px; }
+
+          /* Photo strip */
+          .rv-vb-quote { font-size: clamp(18px, 5.5vw, 28px); padding: 0 8px; }
+
+          /* Services */
+          .rv-services { padding: 72px 28px 52px; }
+          .rv-tiers-grid { grid-template-columns: 1fr; }
+          .rv-tier-card { padding: 40px 28px; }
+          .rv-services-cta { flex-direction: column; align-items: flex-start; gap: 14px; }
+          .rv-addon-inner { padding: 18px 24px; flex-wrap: wrap; }
+
+          /* Fundraising */
+          .rv-fundraising { padding: 0 28px 52px; }
+          .rv-fundraising-inner { grid-template-columns: 1fr; }
+          .rv-fundraising-left { padding: 48px 28px; }
+          .rv-fundraising-right { padding: 48px 28px; }
+
+          /* Approach */
+          .rv-approach { padding: 72px 28px; }
+          .rv-approach-inner { grid-template-columns: 1fr; gap: 48px; }
+
+          /* About */
+          .rv-about { padding: 72px 28px; }
+          .rv-about-bio { font-size: 14px; margin-top: 36px; }
+          .rv-founders-row { flex-direction: column; gap: 32px; margin-top: 48px; }
+          .rv-founder-pill { flex-direction: row; align-items: center; }
+
+          /* Contact */
+          .rv-contact { padding: 72px 28px; grid-template-columns: 1fr; gap: 52px; }
+          .rv-contact-title { font-size: clamp(30px, 8vw, 48px); }
+          .rv-contact-desc { font-size: 14px; }
+          .rv-clink-val { font-size: 15px; }
+
+          /* Footer */
+          .rv-footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+          .rv-footer-nav { display: none; }
+
+          /* Buttons */
+          .rv-btn-primary { padding: 14px 28px; width: 100%; text-align: center; display: block; }
+          .rv-btn-ghost { font-size: 10px; }
+        }
+
+        @media (max-width: 480px) {
+          .rv-nav { padding: 18px 20px; }
+          .rv-hero-left { padding: 100px 20px 64px; }
+          .rv-who { padding: 60px 20px; }
+          .rv-services { padding: 60px 20px 40px; }
+          .rv-fundraising { padding: 0 20px 40px; }
+          .rv-approach { padding: 60px 20px; }
+          .rv-about { padding: 60px 20px; }
+          .rv-contact { padding: 60px 20px; }
+          .rv-footer { padding: 24px 20px; }
+          .rv-tier-card { padding: 32px 20px; }
+          .rv-fundraising-left, .rv-fundraising-right { padding: 40px 20px; }
+        }
       `}</style>
 
       {/* CURSOR */}
