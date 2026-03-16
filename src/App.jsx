@@ -558,8 +558,8 @@ export default function App() {
             { label: "Tier 03", name: "Growth CFO", price: "$8,500", featured: false, features: [
               "2 monthly calls with your CFO",
               "Unlimited communication: email, direct messaging, and adhoc calls",
-              "Enhanced strategic advisory — pricing strategy, hiring plans, M&A prep",
-              "Fundraising support — readiness, narrative, and materials support",
+              "Enhanced strategic advisory: pricing strategy, hiring plans, M&A prep",
+              "Fundraising support: readiness, narrative, and materials support",
               "Investor and board meeting prep + attendance",
               "Optional Add-On: Full-suite data room to support fundraising (starting at $10k)"
             ] }
@@ -582,7 +582,7 @@ export default function App() {
           <div className="rv-addon-inner">
             <span className="rv-addon-tag">Bookkeeping</span>
             <span className="rv-addon-sep" />
-            <span className="rv-addon-text">Starting at $500/mo, scaling with transaction volume — 3-month minimum commitment, followed by month-to-month</span>
+            <span className="rv-addon-text">Starting at $500/mo, scaling with transaction volume</span>
           </div>
         </div>
         <div className="rv-services-cta rv-reveal">
