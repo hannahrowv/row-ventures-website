@@ -238,7 +238,9 @@ export default function App() {
         .rv-tier-price { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 300; color: var(--sand); line-height: 1; margin-bottom: 4px; }
         .rv-tier-freq { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: var(--text-light); margin-bottom: 30px; }
         .rv-tier-divider { width: 100%; height: 1px; background: rgba(180,144,90,0.14); margin-bottom: 26px; }
-        .rv-tier-desc { font-size: 13.5px; color: var(--text-light); line-height: 1.88; }
+        .rv-tier-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+        .rv-tier-features li { font-size: 13.5px; color: var(--text-light); line-height: 1.7; padding-left: 18px; position: relative; }
+        .rv-tier-features li::before { content: "—"; position: absolute; left: 0; color: var(--gold); opacity: 0.6; }
         .rv-addon-bar { margin-top: 1px; background: rgba(180,144,90,0.07); padding: 1px; }
         .rv-addon-inner { background: var(--ink); padding: 22px 46px; display: flex; align-items: center; gap: 16px; }
         .rv-addon-tag { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); flex-shrink: 0; }
@@ -536,9 +538,31 @@ export default function App() {
         <p className="rv-svc-header-desc rv-reveal">We embed as the finance pillar of your business, bringing institutional-grade thinking to your most critical early decisions. Three tiers — structured to meet you where you are.</p>
         <div className="rv-tiers-grid">
           {[
-            { label: "Tier 01", name: "Foundation", price: "$4k", featured: false, desc: "A dedicated finance partner. Monthly reporting, KPI tracking, cash flow visibility, and a standing monthly call. The financial infrastructure your business needs to operate with clarity." },
-            { label: "Tier 02 — Most Popular", name: "Strategic Finance", price: "$6k", featured: true, desc: "Everything in Foundation, plus forward-looking financial modeling, scenario planning, and board-ready reporting. Built for founders who have investors to keep informed and decisions to make fast." },
-            { label: "Tier 03", name: "Growth CFO", price: "$10k", featured: false, desc: "Everything in Strategic Finance, plus weekly access, cap table management, term sheet support, and strategic financial advisory. Built for founders in motion — raising, scaling, or navigating complexity." }
+            { label: "Tier 01", name: "Foundation", price: "$2,750", featured: false, features: [
+              "Monthly call with your CFO",
+              "Email support",
+              "Monthly executive summary",
+              "3-statement financial report (P&L, balance sheet, cash flow)",
+              "Budget vs. actuals",
+              "Monthly projection updates",
+              "Cash flow monitoring  burn, runway, and 3-scenario forecast"
+            ] },
+            { label: "Tier 02 — Most Popular", name: "Strategic Finance", price: "$4,500", featured: true, features: [
+              "2 monthly calls with your CFO (month-end review + scenario planning)",
+              "Email support + limited adhoc calls upon request",
+              "Rolling 12-month forecast",
+              "Scenario analysis",
+              "Investor and board-ready 1-pager",
+              "KPI analysis"
+            ] },
+            { label: "Tier 03", name: "Growth CFO", price: "$8,500", featured: false, features: [
+              "2 monthly calls with your CFO",
+              "Unlimited communication: email, direct messaging, and adhoc calls",
+              "Enhanced strategic advisory — pricing strategy, hiring plans, M&A prep",
+              "Fundraising support — readiness, narrative, and materials support",
+              "Investor and board meeting prep + attendance",
+              "Optional Add-On: Full-suite data room to support fundraising (starting at $10k)"
+            ] }
           ].map((t, i) => (
             <div className={`rv-tier-card rv-reveal${t.featured ? " featured" : ""}${i===1?" rv-d1":i===2?" rv-d2":""}`} key={t.name}>
               <div className="rv-tier-label">{t.label}</div>
@@ -546,15 +570,19 @@ export default function App() {
               <div className="rv-tier-price">{t.price}</div>
               <div className="rv-tier-freq">/ month</div>
               <div className="rv-tier-divider" />
-              <p className="rv-tier-desc">{t.desc}</p>
+              <ul className="rv-tier-features">
+                {t.features.map((f, fi) => (
+                  <li key={fi}>{f}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
         <div className="rv-addon-bar">
           <div className="rv-addon-inner">
-            <span className="rv-addon-tag">Add-on</span>
+            <span className="rv-addon-tag">Bookkeeping</span>
             <span className="rv-addon-sep" />
-            <span className="rv-addon-text">Bookkeeping available across all tiers — pricing based on transaction volume</span>
+            <span className="rv-addon-text">Starting at $500/mo, scaling with transaction volume — 3-month minimum commitment, followed by month-to-month</span>
           </div>
         </div>
         <div className="rv-services-cta rv-reveal">
