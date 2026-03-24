@@ -5,3 +5,17 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* ADA: Focus visible styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #C9A96E;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* ADA: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee2 {
+    animation-play-state: paused;
+  }
+}
