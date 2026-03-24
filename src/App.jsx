@@ -71,7 +71,7 @@ export default function App() {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(address).catch(() => {});
     }
-    showToast("Copied â " + address);
+    showToast("Copied — " + address);
   };
 
   const addHover = (e) => {
@@ -182,7 +182,7 @@ export default function App() {
         .rv-btn-primary:hover::after { transform: scaleX(1); }
         .rv-btn-primary span { position: relative; z-index: 1; }
         .rv-btn-ghost { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); text-decoration: none; display: flex; align-items: center; gap: 10px; transition: color 0.3s; background: none; border: none; cursor: none; }
-        .rv-btn-ghost::after { content: 'â'; transition: transform 0.3s; }
+        .rv-btn-ghost::after { content: '→'; transition: transform 0.3s; }
         .rv-btn-ghost:hover { color: var(--parchment); }
         .rv-btn-ghost:hover::after { transform: translateX(4px); }
 
@@ -240,7 +240,7 @@ export default function App() {
         .rv-tier-divider { width: 100%; height: 1px; background: rgba(180,144,90,0.14); margin-bottom: 26px; }
         .rv-tier-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
         .rv-tier-features li { font-size: 13.5px; color: var(--text-light); line-height: 1.7; padding-left: 18px; position: relative; }
-        .rv-tier-features li::before { content: "â"; position: absolute; left: 0; color: var(--gold); opacity: 0.6; }
+        .rv-tier-features li::before { content: "—"; position: absolute; left: 0; color: var(--gold); opacity: 0.6; }
         .rv-addon-bar { margin-top: 1px; background: rgba(180,144,90,0.07); padding: 1px; }
         .rv-addon-inner { background: var(--ink); padding: 22px 46px; display: flex; align-items: center; gap: 16px; }
         .rv-addon-tag { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); flex-shrink: 0; }
@@ -260,7 +260,7 @@ export default function App() {
         .rv-f-price-note { margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(180,144,90,0.1); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sand); }
         .rv-f-list { list-style: none; position: relative; z-index: 1; }
         .rv-f-list li { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; color: var(--sand); padding: 13px 0; border-top: 1px solid rgba(180,144,90,0.1); display: flex; align-items: flex-start; gap: 14px; line-height: 1.5; }
-        .rv-f-list li::before { content: 'â'; color: var(--gold); opacity: 0.5; flex-shrink: 0; }
+        .rv-f-list li::before { content: '—'; color: var(--gold); opacity: 0.5; flex-shrink: 0; }
 
         /* APPROACH */
         .rv-approach { padding: 130px 64px; background: var(--dark2); position: relative; overflow: hidden; }
@@ -297,7 +297,7 @@ export default function App() {
         .rv-founder-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; margin-bottom: 3px; }
         .rv-founder-role { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
         .rv-founder-email { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; color: var(--text-light); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: none; }
-        .rv-founder-email::after { content: 'â'; transition: transform 0.3s; }
+        .rv-founder-email::after { content: '→'; transition: transform 0.3s; }
         .rv-founder-email:hover { color: var(--gold); }
         .rv-founder-email:hover::after { transform: translateX(3px); }
         .rv-location { margin-top: 48px; display: flex; align-items: center; gap: 12px; }
@@ -454,7 +454,7 @@ export default function App() {
           <h1 className="rv-hero-headline">
             Where financial<br/>strategy meets<br/><em>early-stage<br/>ambition.</em>
           </h1>
-          <p className="rv-hero-sub">We partner with startups to transform complex numbers into compelling narratives â empowering founders to build while we secure their financial future.</p>
+          <p className="rv-hero-sub">We partner with startups to transform complex numbers into compelling narratives — empowering founders to build while we secure their financial future.</p>
           <div className="rv-hero-actions">
             <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="rv-btn-primary" {...hoverProps}><span>Work with us</span></a>
             <a href="#services" className="rv-btn-ghost" {...hoverProps}>Our services</a>
@@ -463,7 +463,7 @@ export default function App() {
         <div className="rv-hero-right">
           <div className="rv-hero-stats">
             <div className="rv-stat">
-              <span className="rv-stat-num">Pre-seed â Series A</span>
+              <span className="rv-stat-num">Pre-seed → Series A</span>
               <span className="rv-stat-label">Stage focus</span>
             </div>
             <div className="rv-stat-divider" />
@@ -496,7 +496,7 @@ export default function App() {
         <div className="rv-who-text rv-reveal">
           <p className="rv-sec-label">Who we serve</p>
           <h2 className="rv-sec-title" style={{marginBottom: 28}}>The financial partner<br/>early-stage founders<br/><em>actually need.</em></h2>
-          <p className="rv-who-desc">We bring comprehensive CFO support to early-stage companies where the most critical financial decisions are being made â filling the gap between where founders are today and where institutional-grade finance can take them.</p>
+          <p className="rv-who-desc">We bring comprehensive CFO support to early-stage companies where the most critical financial decisions are being made — filling the gap between where founders are today and where institutional-grade finance can take them.</p>
           <p className="rv-who-desc">We work with startups across industries to support sustainable growth, raise-readiness, and the financial clarity that builds investor confidence. Building what's next.</p>
           <div className="rv-who-tags">
             {["Fintech","AI Tools","Defense Tech","Real Estate Tech","CPG","Music & Audio Tech","Sports Tech"].map(t => (
@@ -506,9 +506,9 @@ export default function App() {
         </div>
         <div className="rv-who-right rv-reveal rv-d1">
           {[
-            { num: "Pre-seed", label: "From the beginning", desc: "We meet founders at the very beginning â building financial infrastructure from scratch and fueling them forward with comprehensive strategy and fundraising support." },
-            { num: "Seed â A", label: "Navigate growth with precision", desc: "Scenario planning, critical decision support, and the financial architecture to navigate acceleration â keeping investors informed and momentum intact." },
-            { num: "Up to $50M", label: "Revenue range", desc: "We meet you where you are â and build the financial foundation to get you where you're going." }
+            { num: "Pre-seed", label: "From the beginning", desc: "We meet founders at the very beginning — building financial infrastructure from scratch and fueling them forward with comprehensive strategy and fundraising support." },
+            { num: "Seed → A", label: "Navigate growth with precision", desc: "Scenario planning, critical decision support, and the financial architecture to navigate acceleration — keeping investors informed and momentum intact." },
+            { num: "Up to $50M", label: "Revenue range", desc: "We meet you where you are — and build the financial foundation to get you where you're going." }
           ].map(w => (
             <div className="rv-wsb" key={w.num}>
               <div className="rv-wsb-num">{w.num}</div>
@@ -524,7 +524,7 @@ export default function App() {
         <div className="rv-photo-strip-img" />
         <div className="rv-photo-strip-overlay" />
         <div className="rv-photo-strip-content">
-          <p className="rv-vb-quote">"Financial discipline isn't about restraint â it's about unlocking opportunity."</p>
+          <p className="rv-vb-quote">"Financial discipline isn't about restraint — it's about unlocking opportunity."</p>
           <span className="rv-vb-attr">Row Ventures</span>
         </div>
       </div>
@@ -535,7 +535,7 @@ export default function App() {
           <p className="rv-sec-label">Our Services</p>
           <h2 className="rv-sec-title">Fractional <em>CFO</em></h2>
         </div>
-        <p className="rv-svc-header-desc rv-reveal">We embed as the finance pillar of your business, bringing institutional-grade thinking to your most critical early decisions. Three tiers â structured to meet you where you are.</p>
+        <p className="rv-svc-header-desc rv-reveal">We embed as the finance pillar of your business, bringing institutional-grade thinking to your most critical early decisions. Three tiers — structured to meet you where you are.</p>
         <div className="rv-tiers-grid">
           {[
             { label: "Tier 01", name: "Foundation", price: "$2,750", featured: false, features: [
@@ -547,7 +547,7 @@ export default function App() {
               "Monthly projection updates",
               "Cash flow monitoring  burn, runway, and 3-scenario forecast"
             ] },
-            { label: "Tier 02 â Most Popular", name: "Strategic Finance", price: "$4,500", featured: true, features: [
+            { label: "Tier 02 — Most Popular", name: "Strategic Finance", price: "$4,500", featured: true, features: [
               "2 monthly calls with your CFO (month-end review + scenario planning)",
               "Email support + limited adhoc calls upon request",
               "Rolling 12-month forecast",
@@ -587,7 +587,7 @@ export default function App() {
         </div>
         <div className="rv-services-cta rv-reveal">
           <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="rv-btn-primary" {...hoverProps}><span>Set up an intro call</span></a>
-          <span className="rv-services-cta-note">30 minutes â no commitment</span>
+          <span className="rv-services-cta-note">30 minutes — no commitment</span>
         </div>
       </section>
 
@@ -599,7 +599,7 @@ export default function App() {
         </div>
         <div className="rv-fundraising-inner rv-reveal">
           <div className="rv-fundraising-left">
-            <p className="rv-f-desc">For founders preparing for or actively running a raise. We handle every financial dimension of your fundraise from first draft to close â building the data room you need to support investor due diligence â so you can stay focused on the conversations that matter.</p>
+            <p className="rv-f-desc">For founders preparing for or actively running a raise. We handle every financial dimension of your fundraise from first draft to close — building the data room you need to support investor due diligence — so you can stay focused on the conversations that matter.</p>
             <div className="rv-f-price-note">Starting at $10k</div>
           </div>
           <div className="rv-fundraising-right">
@@ -618,14 +618,14 @@ export default function App() {
           <div className="rv-approach-sticky rv-reveal">
             <p className="rv-sec-label">How we work</p>
             <h2 className="rv-sec-title" style={{fontSize: "clamp(30px,2.8vw,46px)"}}>Embedded.<br/>Strategic.<br/><em>Accountable.</em></h2>
-            <p>Finance isn't just reporting â it's the operating system behind every major decision. We make it a strategic asset, not a back-office function.</p>
+            <p>Finance isn't just reporting — it's the operating system behind every major decision. We make it a strategic asset, not a back-office function.</p>
           </div>
           <div>
             {[
-              { n: "01", t: "Deep Discovery", d: "We start by understanding your business model, market, competitive dynamics, and fundraising goals. The financial strategy flows from the business reality â not the other way around." },
-              { n: "02", t: "Strategic Architecture", d: "We build the financial foundation from first principles â models that reflect how your business actually works and narratives crafted for your specific investor audience." },
-              { n: "03", t: "Investor-Ready Delivery", d: "Polished, institutional-quality deliverables. We scrutinize every slide, assumption, and number â because your investors will too." },
-              { n: "04", t: "Ongoing Partnership", d: "For fractional CFO clients, we stay embedded â weekly check-ins, real-time analysis, board prep, and strategic guidance as your company evolves. We grow with you." }
+              { n: "01", t: "Deep Discovery", d: "We start by understanding your business model, market, competitive dynamics, and fundraising goals. The financial strategy flows from the business reality — not the other way around." },
+              { n: "02", t: "Strategic Architecture", d: "We build the financial foundation from first principles — models that reflect how your business actually works and narratives crafted for your specific investor audience." },
+              { n: "03", t: "Investor-Ready Delivery", d: "Polished, institutional-quality deliverables. We scrutinize every slide, assumption, and number — because your investors will too." },
+              { n: "04", t: "Ongoing Partnership", d: "For fractional CFO clients, we stay embedded — weekly check-ins, real-time analysis, board prep, and strategic guidance as your company evolves. We grow with you." }
             ].map((s, i) => (
               <div className={`rv-step rv-reveal${i===1?" rv-d1":i===2?" rv-d2":i===3?" rv-d3":""}`} key={s.n}>
                 <div className="rv-step-n">{s.n}</div>
@@ -650,8 +650,8 @@ export default function App() {
           <p className="rv-sec-label">About us</p>
           <h2 className="rv-sec-title">Background<br/>& <em>mission.</em></h2>
           <div className="rv-about-bio">
-            <p><strong>Row Ventures was born from a simple observation: early-stage founders are making their most consequential financial decisions with the least support.</strong> Row was built to close that gap â bringing institutional-grade financial rigor to the founders who need it most.</p>
-            <p>Sarah and Hannah met at Goldman Sachs, both within the lending organization with a shared passion for entrepreneurship and the startup ecosystem. Sarah spent her years at Goldman Sachs deep in the financial infrastructure of consumer lending businesses. Prior to that, Sarah worked at a fractional CFO firm in Australia, where she advised early-stage founders on tax &amp; business structuring â and found her footing at the intersection of institutional finance and founder-facing advisory. Hannah built her career at Goldman Sachs managing multi-billion dollar corporate lending teams and turning complexity into precise, actionable outcomes â from building technical workflows to synthesizing credit structures across multiple vehicles. She obsesses over execution details - excellence is the standard.</p>
+            <p><strong>Row Ventures was born from a simple observation: early-stage founders are making their most consequential financial decisions with the least support.</strong> Row was built to close that gap — bringing institutional-grade financial rigor to the founders who need it most.</p>
+            <p>Sarah and Hannah met at Goldman Sachs, both within the lending organization with a shared passion for entrepreneurship and the startup ecosystem. Sarah spent her years at Goldman Sachs deep in the financial infrastructure of consumer lending businesses. Prior to that, Sarah worked at a fractional CFO firm in Australia, where she advised early-stage founders on tax &amp; business structuring — and found her footing at the intersection of institutional finance and founder-facing advisory. Hannah built her career at Goldman Sachs managing multi-billion dollar corporate lending teams and turning complexity into precise, actionable outcomes — from building technical workflows to synthesizing credit structures across multiple vehicles. She obsesses over execution details - excellence is the standard.</p>
             <p>Together, they founded Row to get in the weeds alongside early-stage founders, ask the hard questions early, and build the financial clarity that makes both founders and investors confident.</p>
           </div>
           <div className="rv-founders-row">
@@ -681,7 +681,7 @@ export default function App() {
         <div className="rv-contact-bg" />
         <div>
           <h2 className="rv-contact-title rv-reveal">The financials<br/>are the foundation.<br/><em>Let's build yours.</em></h2>
-          <p className="rv-contact-desc rv-reveal rv-d1">Whether you're preparing for your first raise or scaling toward Series A, start with a 30-minute discovery call. No commitment â just clarity.</p>
+          <p className="rv-contact-desc rv-reveal rv-d1">Whether you're preparing for your first raise or scaling toward Series A, start with a 30-minute discovery call. No commitment — just clarity.</p>
           <div className="rv-contact-btn rv-reveal rv-d2">
             <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="rv-btn-primary" {...hoverProps}><span>Book a discovery call</span></a>
           </div>
@@ -696,12 +696,12 @@ export default function App() {
           >
             <span className="rv-clink-label">Email</span>
             <span className="rv-clink-val">hello@row-ventures.com</span>
-            <span className="rv-clink-arrow">â</span>
+            <span className="rv-clink-arrow">→</span>
           </a>
           <a href={CALENDAR_URL} target="_blank" rel="noreferrer" className="rv-clink" style={{borderBottom: "1px solid rgba(180,144,90,0.1)"}} {...hoverProps}>
             <span className="rv-clink-label">Schedule</span>
             <span className="rv-clink-val">30-min discovery call</span>
-            <span className="rv-clink-arrow">â</span>
+            <span className="rv-clink-arrow">→</span>
           </a>
         </div>
 
@@ -709,7 +709,7 @@ export default function App() {
           {formStatus === 'success' ? (
             <div style={{padding: "2rem 0"}}>
               <p style={{fontSize: "1.1rem", fontStyle: "italic", color: "#b4905a", marginBottom: "0.5rem"}}>Message received.</p>
-              <p style={{fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.75}}>Thanks for reaching out â we'll be in touch shortly.</p>
+              <p style={{fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.75}}>Thanks for reaching out — we'll be in touch shortly.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", gap: "0"}}>
