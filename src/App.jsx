@@ -149,12 +149,12 @@ export default function App() {
         .rv-nav::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,10,8,0.96) 0%, transparent 100%); pointer-events: none; }
         .rv-nav-logo-wrap { position: relative; z-index: 1; }
         .rv-nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--parchment); text-decoration: none; display: block; }
-        .rv-nav-sub { font-family: 'DM Mono', monospace; font-size: 7.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+        .rv-nav-sub { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sand); display: flex; align-items: center; gap: 8px; margin-top: 4px; }
         .rv-nav-sub::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
         .rv-nav-links { display: flex; gap: 40px; list-style: none; position: relative; z-index: 1; }
-        .rv-nav-links a { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); text-decoration: none; transition: color 0.3s; }
+        .rv-nav-links a { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sand); text-decoration: none; transition: color 0.3s; }
         .rv-nav-links a:hover { color: var(--gold); }
-        .rv-nav-cta { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); background: var(--gold); padding: 11px 24px; text-decoration: none; position: relative; z-index: 1; transition: background 0.3s; }
+        .rv-nav-cta { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink); background: var(--gold); padding: 11px 24px; text-decoration: none; position: relative; z-index: 1; transition: background 0.3s; }
         .rv-nav-cta:hover { background: var(--sand); }
 
         /* HERO */
@@ -166,14 +166,14 @@ export default function App() {
         .rv-hero-stats { display: flex; flex-direction: column; align-items: center; text-align: center; animation: rv-fadeIn 1s ease 1.4s both; }
         .rv-stat { display: flex; flex-direction: column; align-items: center; gap: 6px; }
         .rv-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; color: var(--sand); letter-spacing: 0.06em; }
-        .rv-stat-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-light); }
+        .rv-stat-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
         .rv-stat-divider { width: 1px; height: 44px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); margin: 18px auto; }
         .rv-hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(54px, 5.8vw, 88px); font-weight: 300; line-height: 1.04; letter-spacing: -0.015em; margin-bottom: 36px; animation: rv-fadeUp 1s ease 0.4s both; }
         .rv-hero-headline em { font-style: italic; color: var(--gold); }
         .rv-hero-sub { font-size: 15px; font-weight: 300; color: var(--text-light); max-width: 390px; line-height: 1.88; margin-bottom: 52px; animation: rv-fadeUp 1s ease 0.6s both; }
         .rv-hero-actions { display: flex; gap: 28px; align-items: center; animation: rv-fadeUp 1s ease 0.8s both; }
         .rv-scroll-hint { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 10; animation: rv-fadeIn 1s ease 1.8s both; }
-        .rv-scroll-hint span { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-light); }
+        .rv-scroll-hint span { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-light); }
         .rv-scroll-line { width: 1px; height: 42px; background: linear-gradient(to bottom, var(--gold), transparent); animation: rv-pulse 2.2s ease infinite; }
 
         /* BUTTONS */
@@ -193,7 +193,7 @@ export default function App() {
         .rv-mdot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
 
         /* SHARED */
-        .rv-sec-label { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+        .rv-sec-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
         .rv-sec-label::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
         .rv-sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 3.6vw, 54px); font-weight: 300; line-height: 1.1; }
         .rv-sec-title em { font-style: italic; color: var(--sand); }
@@ -204,13 +204,13 @@ export default function App() {
         .rv-who-text { position: relative; z-index: 1; }
         .rv-who-desc { font-size: 15px; color: var(--text-light); line-height: 1.9; margin-bottom: 20px; }
         .rv-who-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
-        .rv-who-tag { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sand); border: 1px solid rgba(180,144,90,0.2); padding: 7px 15px; transition: border-color 0.3s, color 0.3s; }
+        .rv-who-tag { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sand); border: 1px solid rgba(180,144,90,0.2); padding: 7px 15px; transition: border-color 0.3s, color 0.3s; }
         .rv-who-tag:hover { border-color: rgba(180,144,90,0.5); color: var(--gold); }
         .rv-who-right { display: flex; flex-direction: column; gap: 1px; background: rgba(180,144,90,0.07); position: relative; z-index: 1; }
         .rv-wsb { background: rgba(9,8,6,0.96); padding: 38px 42px; transition: background 0.3s; }
         .rv-wsb:hover { background: #0f0c09; }
         .rv-wsb-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 6px; }
-        .rv-wsb-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 10px; }
+        .rv-wsb-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); margin-bottom: 10px; }
         .rv-wsb-desc { font-size: 13px; color: var(--text-light); line-height: 1.8; }
 
         /* PHOTO STRIP */
@@ -220,7 +220,7 @@ export default function App() {
         .rv-photo-strip-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,10,8,0.65) 0%, rgba(12,10,8,0.3) 50%, rgba(12,10,8,0.72) 100%); }
         .rv-photo-strip-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px; z-index: 2; padding: 0 40px; }
         .rv-vb-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.8vw, 40px); font-weight: 300; font-style: italic; color: var(--cream); text-align: center; max-width: 720px; line-height: 1.5; text-shadow: 0 2px 48px rgba(0,0,0,0.95); }
-        .rv-vb-attr { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+        .rv-vb-attr { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
 
         /* SERVICES */
         .rv-services { padding: 130px 64px 80px; }
@@ -233,21 +233,21 @@ export default function App() {
         .rv-tier-card:hover::before { opacity: 1; }
         .rv-tier-card.featured { background: #100d0a; }
         .rv-tier-card.featured::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gold); }
-        .rv-tier-label { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+        .rv-tier-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
         .rv-tier-name { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 400; margin-bottom: 8px; }
         .rv-tier-price { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 300; color: var(--sand); line-height: 1; margin-bottom: 4px; }
-        .rv-tier-freq { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em; color: var(--text-light); margin-bottom: 30px; }
+        .rv-tier-freq { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: var(--text-light); margin-bottom: 30px; }
         .rv-tier-divider { width: 100%; height: 1px; background: rgba(180,144,90,0.14); margin-bottom: 26px; }
         .rv-tier-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
         .rv-tier-features li { font-size: 13.5px; color: var(--text-light); line-height: 1.7; padding-left: 18px; position: relative; }
         .rv-tier-features li::before { content: "—"; position: absolute; left: 0; color: var(--gold); opacity: 0.6; }
         .rv-addon-bar { margin-top: 1px; background: rgba(180,144,90,0.07); padding: 1px; }
         .rv-addon-inner { background: var(--ink); padding: 22px 46px; display: flex; align-items: center; gap: 16px; }
-        .rv-addon-tag { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); flex-shrink: 0; }
+        .rv-addon-tag { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); flex-shrink: 0; }
         .rv-addon-sep { width: 1px; height: 18px; background: rgba(180,144,90,0.2); flex-shrink: 0; }
-        .rv-addon-text { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; color: var(--text-light); }
+        .rv-addon-text { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.06em; color: var(--text-light); }
         .rv-services-cta { margin-top: 52px; display: flex; align-items: center; gap: 24px; }
-        .rv-services-cta-note { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); }
+        .rv-services-cta-note { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); }
 
         /* FUNDRAISING */
         .rv-fundraising { padding: 0 64px 60px; }
@@ -257,9 +257,9 @@ export default function App() {
         .rv-fundraising-right { background: var(--ink); padding: 70px 58px; position: relative; overflow: hidden; }
         .rv-fundraising-right::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(90,62,40,0.08) 0%, transparent 60%); }
         .rv-f-desc { font-size: 15px; color: var(--text-light); line-height: 1.9; }
-        .rv-f-price-note { margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(180,144,90,0.1); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sand); }
+        .rv-f-price-note { margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(180,144,90,0.1); font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sand); }
         .rv-f-list { list-style: none; position: relative; z-index: 1; }
-        .rv-f-list li { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; color: var(--sand); padding: 13px 0; border-top: 1px solid rgba(180,144,90,0.1); display: flex; align-items: flex-start; gap: 14px; line-height: 1.5; }
+        .rv-f-list li { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.06em; color: var(--sand); padding: 13px 0; border-top: 1px solid rgba(180,144,90,0.1); display: flex; align-items: flex-start; gap: 14px; line-height: 1.5; }
         .rv-f-list li::before { content: '—'; color: var(--gold); opacity: 0.5; flex-shrink: 0; }
 
         /* APPROACH */
@@ -270,7 +270,7 @@ export default function App() {
         .rv-step { padding: 38px 0; border-bottom: 1px solid rgba(180,144,90,0.1); transition: padding-left 0.3s; }
         .rv-step:first-child { border-top: 1px solid rgba(180,144,90,0.1); }
         .rv-step:hover { padding-left: 14px; }
-        .rv-step-n { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.22em; color: var(--gold); margin-bottom: 12px; }
+        .rv-step-n { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 12px; }
         .rv-step-t { font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 400; margin-bottom: 11px; transition: color 0.3s; }
         .rv-step:hover .rv-step-t { color: var(--sand); }
         .rv-step-d { font-size: 13px; color: var(--text-light); line-height: 1.88; }
@@ -295,14 +295,14 @@ export default function App() {
         .rv-founder-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #3d2410 0%, #6b3a1f 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .rv-founder-initial { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--sand); }
         .rv-founder-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; margin-bottom: 3px; }
-        .rv-founder-role { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-        .rv-founder-email { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; color: var(--text-light); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: none; }
+        .rv-founder-role { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+        .rv-founder-email { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--text-light); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: none; }
         .rv-founder-email::after { content: '→'; transition: transform 0.3s; }
         .rv-founder-email:hover { color: var(--gold); }
         .rv-founder-email:hover::after { transform: translateX(3px); }
         .rv-location { margin-top: 48px; display: flex; align-items: center; gap: 12px; }
         .rv-location-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
-        .rv-location-text { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); }
+        .rv-location-text { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); }
 
         /* CONTACT */
         .rv-contact { padding: 140px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: center; background: var(--dark2); position: relative; overflow: hidden; }
@@ -315,7 +315,7 @@ export default function App() {
         .rv-clink { display: flex; align-items: center; gap: 20px; padding: 22px 0; border-bottom: 1px solid rgba(180,144,90,0.1); text-decoration: none; color: var(--parchment); transition: padding-left 0.3s; background: none; border-top: none; width: 100%; cursor: none; }
         .rv-clink:first-child { border-top: 1px solid rgba(180,144,90,0.1); }
         .rv-clink:hover { padding-left: 12px; }
-        .rv-clink-label { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); width: 72px; flex-shrink: 0; }
+        .rv-clink-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); width: 72px; flex-shrink: 0; }
         .rv-clink-val { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; text-align: left; }
         .rv-clink-arrow { margin-left: auto; color: var(--text-light); transition: transform 0.3s, color 0.3s; }
         .rv-clink:hover .rv-clink-arrow { transform: translateX(6px); color: var(--gold); }
@@ -424,7 +424,16 @@ export default function App() {
           .rv-tier-card { padding: 32px 20px; }
           .rv-fundraising-left, .rv-fundraising-right { padding: 40px 20px; }
         }
-      `}</style>
+      `}
+        /* ADA: focus-visible for keyboard nav */
+        *:focus-visible { outline: 2px solid #C9A96E; outline-offset: 3px; border-radius: 2px; }
+        /* ADA: reduced motion */
+        @media (prefers-reduced-motion: reduce) { .rv-marquee, .rv-marquee2 { animation-play-state: paused; } }
+        /* ADA: footer contrast fix */
+        .rv-footer-copy { color: #9A8F84 !important; }
+        .rv-footer-links a { color: #9A8F84 !important; }
+        .rv-footer-logo { color: #C4B8AE !important; }
+        </style>
 
       {/* CURSOR */}
       <div ref={cursorRef} className="rv-cursor" style={{ opacity: cursorStarted ? 1 : 0 }} />
