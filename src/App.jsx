@@ -425,14 +425,6 @@ export default function App() {
           .rv-fundraising-left, .rv-fundraising-right { padding: 40px 20px; }
         }
       `}
-        /* ADA: focus-visible for keyboard nav */
-        :focus-visible { outline: 2px solid #C9A96E; outline-offset: 3px; border-radius: 2px; }
-        /* ADA: reduced motion */
-        @media (prefers-reduced-motion: reduce) { .rv-marquee, .rv-marquee2 { animation-play-state: paused; } }
-        /* ADA: footer contrast fix */
-        .rv-footer-copy { color: #9A8F84 !important; }
-        .rv-footer-links a { color: #9A8F84 !important; }
-        .rv-footer-logo { color: #C4B8AE !important; }
         </style>
 
       {/* CURSOR */}
