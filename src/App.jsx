@@ -426,7 +426,7 @@ export default function App() {
         }
       `}
         /* ADA: focus-visible for keyboard nav */
-        *:focus-visible { outline: 2px solid #C9A96E; outline-offset: 3px; border-radius: 2px; }
+        :focus-visible { outline: 2px solid #C9A96E; outline-offset: 3px; border-radius: 2px; }
         /* ADA: reduced motion */
         @media (prefers-reduced-motion: reduce) { .rv-marquee, .rv-marquee2 { animation-play-state: paused; } }
         /* ADA: footer contrast fix */
