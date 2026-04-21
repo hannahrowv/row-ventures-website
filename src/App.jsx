@@ -613,6 +613,19 @@ export default function App() {
         </div>
       </section>
 
+      {/* AD HOC */}
+      <section className="rv-fundraising" id="adhoc">
+        <div className="rv-fundraising-header rv-reveal">
+          <p className="rv-sec-label">As Needed</p>
+          <h2 className="rv-sec-title">Ad Hoc <em>Tailored to You</em></h2>
+        </div>
+        <div className="rv-fundraising-inner rv-reveal" style={{gridTemplateColumns: "1fr"}}>
+          <div className="rv-fundraising-left">
+            <p className="rv-f-desc">Not every need fits a retainer. Whether it's a one-time financial model, a quick gut-check on a term sheet, or a deep dive into a specific decision — we're built for that too. Tell us what you need and we'll scope it together.</p>
+          </div>
+        </div>
+      </section>
+
       {/* APPROACH */}
       <section className="rv-approach" id="approach">
         <div className="rv-approach-inner">
