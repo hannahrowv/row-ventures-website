@@ -1,14 +1,335 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Row Ventures — Strategic Finance for Founders. Fractional CFO services and financial advisory for early-stage startups." />
-    <title>Row Ventures</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Row Ventures | Strategic finance and business development for founders</title>
+<meta name="description" content="Row Ventures is an independent advisory partner to early-stage companies: strategic finance, fundraising and business development for founders.">
+<meta property="og:title" content="Row Ventures">
+<meta property="og:description" content="Strategic finance and business development for founders.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://row-ventures.com/images/og-image.jpg">
+<meta property="og:url" content="https://row-ventures.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/fraunces-latin-opsz-normal.woff2') format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url('fonts/fraunces-latin-opsz-italic.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/dm-sans-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/dm-sans-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/dm-sans-latin-600-normal.woff2') format('woff2')}
+body{margin:0;background:#F5EFE3}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.72}
+input,textarea,select,button{font:inherit}
+.rv-line{stroke-dasharray:1;stroke-dashoffset:1;animation:rv-draw 2.4s cubic-bezier(.4,0,.2,1) .6s forwards}
+.rv-area{opacity:0;animation:rv-fade 1.2s ease 2.4s forwards}
+.rv-bar{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);animation:rv-grow .9s cubic-bezier(.3,.7,.3,1) forwards}
+.rv-dot{opacity:0;animation:rv-fade .3s ease 2.9s forwards}
+.rv-halo{opacity:0;transform-box:fill-box;transform-origin:center;animation:rv-pulse 2.4s ease-out 3.1s infinite}
+@keyframes rv-draw{to{stroke-dashoffset:0}}
+@keyframes rv-fade{to{opacity:1}}
+@keyframes rv-grow{to{transform:scaleY(1)}}
+@keyframes rv-pulse{0%{opacity:.5;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
+.rv-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(238,154,110,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(238,154,110,.09) 1px,transparent 1px);background-size:96px 36px;pointer-events:none}
+.rv-cell{position:absolute;left:0;top:0;width:98px;height:38px;box-sizing:border-box;border:2px solid #EE9A6E;pointer-events:none;transition:transform .09s ease-out}
+.rv-cell::after{content:"";position:absolute;right:-4px;bottom:-4px;width:6px;height:6px;background:#EE9A6E;border:1px solid #3A1F14}
+.rv-fcst{opacity:.7}
+.rv-card{transition:transform .25s ease,box-shadow .25s ease}
+.rv-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(42,26,18,.08)}
+@media (prefers-reduced-motion: no-preference){@supports (animation-timeline: view()){
+.rv-reveal{animation:rv-up linear both;animation-timeline:view();animation-range:entry 5% cover 28%}
+.rv-spark{stroke-dasharray:1;animation:rv-draw2 linear both;animation-timeline:view();animation-range:entry 20% cover 45%}
+.rv-fcst{animation:rv-fade2 linear both;animation-timeline:view();animation-range:cover 35% cover 50%}
+}}
+@keyframes rv-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes rv-draw2{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes rv-fade2{from{opacity:0}to{opacity:.7}}
+@media (prefers-reduced-motion: reduce){.rv-cell{transition:none}.rv-card{transition:none}}
+.rv-pill{display:inline-block;transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease;cursor:default}
+.rv-tech:hover{background:var(--hbg);color:var(--hfg);border-color:var(--hbd) !important;transform:translateY(-2px);box-shadow:0 6px 16px rgba(42,26,18,.14)}
+.rv-cpg:hover{background:var(--hbg);color:var(--hfg);border-color:var(--hbd) !important;transform:translateY(-2px);box-shadow:0 6px 16px rgba(42,26,18,.14)}
+.rv-rule{position:relative;border-top-color:transparent !important}
+.rv-rule::before{content:"";position:absolute;left:0;top:-1px;width:100%;height:1px;background:#2A1A12;transform-origin:left}
+@keyframes rv-pop{from{opacity:0;transform:translateY(10px) scale(.92)}to{opacity:1;transform:none}}
+@keyframes rv-scalex{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion: no-preference){@supports (animation-timeline: view()){
+.rv-pill{animation:rv-pop linear both;animation-timeline:view();animation-range:entry calc(var(--i) * 3%) entry calc(40% + var(--i) * 3%)}
+.rv-rule::before{animation:rv-scalex linear both;animation-timeline:view();animation-range:entry 10% cover 35%}
+}}
+@media (prefers-reduced-motion: reduce){.rv-line{animation:none;stroke-dashoffset:0}.rv-area,.rv-dot{animation:none;opacity:1}.rv-bar{animation:none;transform:none}.rv-halo{animation:none}}
+html{scroll-behavior:smooth}
+@media (max-width: 600px){header{position:static!important}}
+</style>
+</head>
+<body>
+
+
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2A1A12; background: #F5EFE3; font-size: 16px; line-height: 1.6; width: 100%; min-width: 0">
+
+<!-- HEADER -->
+<header style="position: sticky; top: 0; z-index: 20; background: #F5EFE3; border-bottom: 1px solid rgba(42,26,18,0.12)">
+<div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#home" style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px; letter-spacing: -0.01em">Row Ventures</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 26px; font-size: 14px">
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="https://calendar.app.google/dSJSgatVP6UTkHUt9" target="_blank" rel="noopener" style="border: 1px solid #2A1A12; padding: 9px 18px; border-radius: 999px">Talk to Row</a>
+</nav>
+</div>
+</header>
+
+<!-- HERO -->
+<section id="home">
+<div style="max-width: 1280px; margin: 0 auto; padding: 88px 32px 96px; display: flex; flex-wrap: wrap; gap: 48px; align-items: stretch">
+<div style="flex: 999 1 540px; min-width: 0; display: flex; flex-direction: column; justify-content: center">
+<p style="margin: 0 0 28px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B5446">[ Independent advisory · For early-stage companies ]</p>
+<h1 style="margin: 0 0 32px; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(48px, 6vw, 88px); line-height: 1.0; letter-spacing: -0.028em">Strategic finance and <em style="font-style: italic; color: #C8633A">business development</em> for founders.</h1>
+<p style="margin: 0 0 40px; font-size: 19px; line-height: 1.6; max-width: 540px; color: #4A3428">Your partner in building and growing an early-stage business. Strategic thinking, financial expertise and hands-on support for the work that moves you forward.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px">
+<a href="https://calendar.app.google/dSJSgatVP6UTkHUt9" target="_blank" rel="noopener" style="background: #3A1F14; color: #F5EFE3; padding: 15px 26px; border-radius: 999px; font-size: 15px; display: inline-flex; align-items: center; gap: 10px">Talk to Row <svg aria-hidden="true" viewBox="0 0 16 16" style="width:0.95em;height:0.95em;vertical-align:-0.1em;flex:none" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+<a href="#services" style="border: 1px solid #2A1A12; padding: 14px 24px; border-radius: 999px; font-size: 15px; display: inline-flex; align-items: center; gap: 10px">Explore services</a>
+</div>
+</div>
+<div style="flex: 1 1 400px; min-width: 0; min-height: 500px; background: #9DBBCB; border-radius: 6px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; padding: 28px; box-sizing: border-box">
+<div style="flex: 1 1 auto; min-height: 0; display: flex; align-items: center" aria-hidden="true">
+<svg viewBox="0 0 300 210" preserveAspectRatio="xMidYMid meet" style="display: block; width: 100%; height: auto; max-height: 230px; overflow: visible">
+<line x1="0" y1="200" x2="300" y2="200" stroke="#2A1A12" stroke-opacity="0.35" stroke-width="1"></line>
+<line x1="0" y1="140" x2="300" y2="140" stroke="#2A1A12" stroke-opacity="0.12" stroke-width="1" stroke-dasharray="3 5"></line>
+<line x1="0" y1="80" x2="300" y2="80" stroke="#2A1A12" stroke-opacity="0.12" stroke-width="1" stroke-dasharray="3 5"></line>
+<line x1="0" y1="20" x2="300" y2="20" stroke="#2A1A12" stroke-opacity="0.12" stroke-width="1" stroke-dasharray="3 5"></line>
+<rect class="rv-bar" x="24" y="154" width="22" height="46" rx="3" fill="#F5EFE3" fill-opacity="0.55" style="animation-delay: 0.00s"></rect><rect class="rv-bar" x="70" y="138" width="22" height="62" rx="3" fill="#F5EFE3" fill-opacity="0.55" style="animation-delay: 0.15s"></rect><rect class="rv-bar" x="116" y="142" width="22" height="58" rx="3" fill="#F5EFE3" fill-opacity="0.55" style="animation-delay: 0.30s"></rect><rect class="rv-bar" x="162" y="116" width="22" height="84" rx="3" fill="#F5EFE3" fill-opacity="0.55" style="animation-delay: 0.45s"></rect><rect class="rv-bar" x="208" y="98" width="22" height="102" rx="3" fill="#F5EFE3" fill-opacity="0.55" style="animation-delay: 0.60s"></rect><rect class="rv-bar" x="254" y="72" width="22" height="128" rx="3" fill="#F5EFE3" fill-opacity="0.55" style="animation-delay: 0.75s"></rect>
+<path class="rv-area" d="M10 168 C 50 160, 70 150, 100 146 S 150 132, 180 112 S 240 70, 285 38 L 285 200 L 10 200 Z" fill="#F6EFA6" fill-opacity="0.35"></path>
+<path class="rv-line" d="M10 168 C 50 160, 70 150, 100 146 S 150 132, 180 112 S 240 70, 285 38" fill="none" stroke="#2A1A12" stroke-width="2.2" stroke-linecap="round" pathLength="1"></path>
+<circle class="rv-halo" cx="285" cy="38" r="5" fill="#C8633A"></circle>
+<circle class="rv-dot" cx="285" cy="38" r="5" fill="#C8633A"></circle>
+</svg>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span style="border: 1px solid #2A1A12; border-radius: 999px; padding: 6px 14px; font-size: 13px">+ Finance</span>
+<span style="border: 1px solid #2A1A12; border-radius: 999px; padding: 6px 14px; font-size: 13px">+ Fundraising</span>
+<span style="border: 1px solid #2A1A12; border-radius: 999px; padding: 6px 14px; font-size: 13px">+ Strategy</span>
+<span style="border: 1px solid #2A1A12; border-radius: 999px; padding: 6px 14px; font-size: 13px">+ Operations</span>
+<span style="border: 1px solid #2A1A12; border-radius: 999px; padding: 6px 14px; font-size: 13px">+ Business development</span>
+</div>
+<div style="background: #F6EFA6; border-radius: 6px; padding: 28px; max-width: 340px">
+<p style="margin: 0; font-family: 'Fraunces', serif; font-weight: 300; font-size: 38px; line-height: 1.05; letter-spacing: -0.02em">A <em style="font-style: italic">clearer</em> way forward.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- INTRO -->
+<section id="rv-story" style="background: #3A1F14; color: #EE9A6E; position: relative; overflow: hidden">
+<div class="rv-grid" aria-hidden="true"></div>
+<div class="rv-cell" aria-hidden="true"></div>
+<div style="position: relative; max-width: 1100px; margin: 0 auto; padding: 112px 32px; text-align: center; display: flex; flex-direction: column; align-items: center">
+<h2 style="margin: 0 0 36px; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(44px, 6vw, 88px); line-height: 1; letter-spacing: -0.03em; max-width: 960px">Your numbers <em style="font-style: italic">tell a story.</em></h2>
+<p style="margin: 0 0 32px; font-size: 18px; line-height: 1.6; max-width: 560px; color: #F2C9A8">We analyse your financials and data to show:</p>
+<div style="width: 100%; max-width: 600px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 40px"><div style="border: 1px solid rgba(238,154,110,0.45); border-radius: 8px; padding: 12px 16px; text-align: left; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; letter-spacing: 0.08em; color: #F2C9A8">[ 01 ]</span><span style="font-family: 'Fraunces', serif; font-weight: 300; font-size: 18px; line-height: 1.2; color: #EE9A6E">What's working</span><svg viewBox="0 0 120 28" aria-hidden="true" style="width: 100%; height: 24px; margin-top: 6px; overflow: visible; fill: none; stroke: #EE9A6E; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round"><path class="rv-spark" d="M2 24 L20 20 L38 22 L56 14 L74 16 L92 8 L118 3" pathLength="1"></path></svg></div><div style="border: 1px solid rgba(238,154,110,0.45); border-radius: 8px; padding: 12px 16px; text-align: left; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; letter-spacing: 0.08em; color: #F2C9A8">[ 02 ]</span><span style="font-family: 'Fraunces', serif; font-weight: 300; font-size: 18px; line-height: 1.2; color: #EE9A6E">What it costs</span><svg viewBox="0 0 120 28" aria-hidden="true" style="width: 100%; height: 24px; margin-top: 6px; overflow: visible; fill: none; stroke: #EE9A6E; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round"><path class="rv-spark" d="M2 5 L28 5 L28 11 L56 11 L56 17 L86 17 L86 22 L118 22" pathLength="1"></path></svg></div><div style="border: 1px solid rgba(238,154,110,0.45); border-radius: 8px; padding: 12px 16px; text-align: left; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; letter-spacing: 0.08em; color: #F2C9A8">[ 03 ]</span><span style="font-family: 'Fraunces', serif; font-weight: 300; font-size: 18px; line-height: 1.2; color: #EE9A6E">Where it's heading</span><svg viewBox="0 0 120 28" aria-hidden="true" style="width: 100%; height: 24px; margin-top: 6px; overflow: visible; fill: none; stroke: #EE9A6E; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round"><path class="rv-spark" d="M2 23 L30 19 L60 15" pathLength="1"></path><path class="rv-fcst" d="M60 15 L118 3" stroke-dasharray="3 4"></path></svg></div></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; max-width: 600px; color: #F2C9A8">That story drives your next decisions, and how you present the business to investors.</p>
+</div>
+</section>
+
+<!-- DOES THIS SOUND FAMILIAR -->
+<section style="background: #FBF7EE; border-bottom: 1px solid rgba(42,26,18,0.1)">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 48px 64px">
+<div style="flex: 1 1 320px; min-width: 0">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B5446">[ Who we work with ]</p>
+<h2 style="margin: 0 0 20px; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.025em">Does this sound <em style="font-style: italic">familiar?</em></h2>
+<p style="margin: 0; color: #6B5446; max-width: 360px">Questions we help founders work through.</p>
+</div>
+<div style="flex: 999 1 560px; min-width: 0; border-top: 1px solid #2A1A12">
+<p class="rv-reveal" style="margin: 0; padding: 24px 0; border-bottom: 1px solid rgba(42,26,18,0.18); font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; line-height: 1.35">“We're growing, but I can't say with confidence how many months of runway we have or what we can afford to spend next quarter.”</p>
+<p class="rv-reveal" style="margin: 0; padding: 24px 0; border-bottom: 1px solid rgba(42,26,18,0.18); font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; line-height: 1.35">“We want to raise in the next six months, but our model wouldn't hold up to investor questions and our deck doesn't tell a clear story yet.”</p>
+<p class="rv-reveal" style="margin: 0; padding: 24px 0; border-bottom: 1px solid rgba(42,26,18,0.18); font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; line-height: 1.35">“I need to decide whether to hire, outsource or wait, and what each option does to our numbers.”</p>
+<p class="rv-reveal" style="margin: 0; padding: 24px 0; border-bottom: 1px solid rgba(42,26,18,0.18); font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; line-height: 1.35">“We have traction, but our next stage of growth needs a clearer plan.”</p>
+<p class="rv-reveal" style="margin: 0; padding: 24px 0; border-bottom: 1px solid rgba(42,26,18,0.18); font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; line-height: 1.35">“We have a big call to make on pricing, a new market or a major spend, and I want someone to pressure-test the numbers and then help get it done.”</p>
+<a href="https://calendar.app.google/dSJSgatVP6UTkHUt9" target="_blank" rel="noopener" style="display: inline-flex; gap: 10px; margin-top: 28px; background: #3A1F14; color: #F5EFE3; padding: 13px 22px; border-radius: 999px; font-size: 15px">Talk to Row <svg aria-hidden="true" viewBox="0 0 16 16" style="width:0.95em;height:0.95em;vertical-align:-0.1em;flex:none" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 56px">
+<div style="min-width: 0">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B5446">[ What we do ]</p>
+<h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(40px, 4.8vw, 64px); line-height: 1.02; letter-spacing: -0.025em">The right support,<br>at the <em style="font-style: italic">right stage.</em></h2>
+</div>
+<p style="margin: 0; max-width: 380px; color: #6B5446">Every company is different. We start with the numbers and apply them to the decisions that matter most at your stage.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<article class="rv-reveal rv-card" style="border: 1px solid rgba(42,26,18,0.22); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: #FBF7EE">
+<span style="font-size: 13px; color: #6B5446">[ 01 ]</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px; line-height: 1.12; letter-spacing: -0.015em">Financial Strategy &amp; Operations</h3>
+<p style="margin: 0; color: #6B5446; font-size: 15px">Build the financial clarity and infrastructure to make confident decisions.</p>
+<ul style="margin: 10px 0 0; padding: 0; list-style: none; font-size: 14px">
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Fractional CFO support</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Financial modelling &amp; forecasting</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Cash flow, margins &amp; unit economics</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Reporting, systems &amp; controls</li>
+</ul>
+</article>
+<article class="rv-reveal rv-card" style="border: 1px solid rgba(42,26,18,0.22); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: #FBF7EE">
+<span style="font-size: 13px; color: #6B5446">[ 02 ]</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px; line-height: 1.12; letter-spacing: -0.015em">Fundraising &amp; Capital Strategy</h3>
+<p style="margin: 0; color: #6B5446; font-size: 15px">Make your next stage of growth more considered, compelling and achievable.</p>
+<ul style="margin: 10px 0 0; padding: 0; list-style: none; font-size: 14px">
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Fundraising strategy &amp; preparation</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Investor-ready financial models</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Investor decks &amp; data rooms</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Commercial and market research</li>
+</ul>
+</article>
+<article class="rv-reveal rv-card" style="border: 1px solid rgba(42,26,18,0.22); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: #FBF7EE">
+<span style="font-size: 13px; color: #6B5446">[ 03 ]</span>
+<h3 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px; line-height: 1.12; letter-spacing: -0.015em">Growth &amp; Business Operations</h3>
+<p style="margin: 0; color: #6B5446; font-size: 15px">Move important work forward, from a strategic question to hands-on execution.</p>
+<ul style="margin: 10px 0 0; padding: 0; list-style: none; font-size: 14px">
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Go-to-market strategy</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Business development &amp; strategic partnerships</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Hiring plans, agency &amp; vendor budgets</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Roadmap &amp; quarterly planning</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">KPIs &amp; operating cadence</li>
+<li style="padding: 10px 0; border-top: 1px solid rgba(42,26,18,0.12)">Board &amp; investor updates</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+
+<!-- BAND -->
+<section style="display: flex; flex-wrap: wrap">
+<div style="flex: 1 1 480px; min-width: 0; background: #F6EFA6; padding: 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center">
+<p style="margin: 0 0 14px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #5C4A1E">[ How we work ]</p>
+<ul style="margin: 0 0 16px; padding: 0; list-style: none; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(28px, 2.8vw, 38px); line-height: 1.25; letter-spacing: -0.02em">
+<li>+ Ongoing support</li>
+<li>+ <em style="font-style: italic">Defined projects</em></li>
+</ul>
+<p style="margin: 0; max-width: 480px; color: #4A3428; font-size: 16px">We shape each engagement around your business, your team and what needs to happen next.</p>
+</div>
+<div style="flex: 1 1 480px; min-width: 0; background: #9DBBCB; padding: 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center">
+<p style="margin: 0 0 14px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #2A1A12">[ Beyond finance ]</p>
+<p style="margin: 0; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.2; letter-spacing: -0.015em; max-width: 520px">Financial expertise, plus hands-on support across strategy, fundraising and operations.</p>
+</div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section>
+<div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 48px">
+<div style="min-width: 0">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B5446">[ Engagements ]</p>
+<h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(40px, 4.8vw, 64px); line-height: 1.02; letter-spacing: -0.025em">Ways to work<br><em style="font-style: italic">with Row.</em></h2>
+</div>
+<p style="margin: 0; max-width: 380px; color: #6B5446">Start with the challenge. We'll work with you to identify the support that will have the greatest impact.</p>
+</div>
+<div style="border-top: 1px solid #2A1A12">
+<div class="rv-reveal" style="display: flex; flex-wrap: wrap; gap: 12px 40px; padding: 30px 0; border-bottom: 1px solid rgba(42,26,18,0.18); align-items: baseline">
+<span style="flex: 0 0 64px; font-size: 14px; color: #6B5446">[ 01 ]</span>
+<h3 style="flex: 1 1 320px; margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: -0.015em">Embedded Advisory</h3>
+<p style="flex: 1 1 360px; margin: 0; color: #6B5446">Ongoing support alongside your leadership team across finance, strategy, business development and operations.</p>
+</div>
+<div class="rv-reveal" style="display: flex; flex-wrap: wrap; gap: 12px 40px; padding: 30px 0; border-bottom: 1px solid rgba(42,26,18,0.18); align-items: baseline">
+<span style="flex: 0 0 64px; font-size: 14px; color: #6B5446">[ 02 ]</span>
+<h3 style="flex: 1 1 320px; margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: -0.015em">Strategic Projects</h3>
+<p style="flex: 1 1 360px; margin: 0; color: #6B5446">Defined projects such as fundraising preparation, financial modelling, market research, GTM planning or commercial diligence.</p>
+</div>
+<div class="rv-reveal" style="display: flex; flex-wrap: wrap; gap: 12px 40px; padding: 30px 0; border-bottom: 1px solid rgba(42,26,18,0.18); align-items: baseline">
+<span style="flex: 0 0 64px; font-size: 14px; color: #6B5446">[ 03 ]</span>
+<h3 style="flex: 1 1 320px; margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: -0.015em">Finance &amp; Reporting</h3>
+<p style="flex: 1 1 360px; margin: 0; color: #6B5446">Reliable financial foundations, reporting and planning that help you understand performance and plan ahead.</p>
+</div>
+</div>
+<div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between">
+<p style="margin: 0; font-size: 15px; color: #4A3428">Not sure what you need? That's a good place to start. <a href="https://calendar.app.google/dSJSgatVP6UTkHUt9" target="_blank" rel="noopener" style="text-decoration: underline">Talk to Row</a></p>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background: #FBF7EE; border-top: 1px solid rgba(42,26,18,0.1)">
+<div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px">
+<div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: stretch">
+<div style="flex: 0 1 420px; min-width: 280px; align-self: center; position: relative; aspect-ratio: 420 / 560">
+<figure style="position: absolute; left: 0; top: 0; width: 66%; margin: 0; z-index: 1">
+<img src="images/sarah.jpg" alt="Sarah Jackson, co-founder of Row Ventures" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px">
+<figcaption style="position: absolute; left: 12px; top: 12px; background: #FBF7EE; border-radius: 999px; padding: 5px 12px; font-size: 12px; line-height: 1.4; color: #2A1A12">Sarah Jackson · Co-founder</figcaption>
+</figure>
+<figure style="position: absolute; right: 0; bottom: 0; width: 66%; margin: 0; z-index: 2">
+<img src="images/hannah.jpg" alt="Hannah Stinson, co-founder of Row Ventures" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; outline: 8px solid #FBF7EE">
+<figcaption style="position: absolute; left: 12px; bottom: 12px; background: #FBF7EE; border-radius: 999px; padding: 5px 12px; font-size: 12px; line-height: 1.4; color: #2A1A12">Hannah Stinson · Co-founder</figcaption>
+</figure>
+</div>
+<div style="flex: 999 1 420px; min-width: 0">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B5446">[ A little about us ]</p>
+<h2 style="margin: 0 0 28px; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(40px, 4.8vw, 64px); line-height: 1.02; letter-spacing: -0.025em">In your corner,<br><em style="font-style: italic">as you build.</em></h2>
+<p style="margin: 0 0 18px; color: #4A3428">Row Ventures is an independent advisory partner to early-stage companies. We bring financial expertise, strategic thinking and hands-on support to the decisions and work that move a business forward. Finance is our core expertise and the foundation for decisions around growth, spending, hiring, pricing and fundraising.</p>
+<p style="margin: 0 0 18px; color: #4A3428">Row was founded by Sarah Jackson and Hannah Stinson, whose backgrounds span banking and financial services, most recently at Goldman Sachs, where the two met and worked together.</p>
+<p style="margin: 0 0 28px; color: #4A3428">We know the early stages rarely follow a neat plan. Priorities shift, new questions appear and the most important work often sits between functions. Our role is to bring clarity, perspective and momentum where they're needed.</p>
+<div style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B5446">[ Industries we've worked in ]</p>
+<div class="rv-row-tech" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><span style="font-size: 13px; font-weight: 600; margin-right: 4px">Tech</span><span class="rv-pill rv-tech" style="--i: 0; --hbg: #111111; --hfg: #7CFF4F; --hbd: #7CFF4F; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Health tech</span><span class="rv-pill rv-tech" style="--i: 1; --hbg: #161616; --hfg: #4FD8FF; --hbd: #4FD8FF; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Fintech</span><span class="rv-pill rv-tech" style="--i: 2; --hbg: #141414; --hfg: #FF6FAE; --hbd: #FF6FAE; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Agentic AI risk</span><span class="rv-pill rv-tech" style="--i: 3; --hbg: #1E1E1E; --hfg: #B9A0FF; --hbd: #B9A0FF; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">AI operations</span><span class="rv-pill rv-tech" style="--i: 4; --hbg: #121212; --hfg: #FFD24F; --hbd: #FFD24F; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Creator economy</span><span class="rv-pill rv-tech" style="--i: 5; --hbg: #1A1A1A; --hfg: #FF9354; --hbd: #FF9354; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Sports tech</span><span class="rv-pill rv-tech" style="--i: 6; --hbg: #101010; --hfg: #4FFFD6; --hbd: #4FFFD6; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Music tech</span><span class="rv-pill rv-tech" style="--i: 7; --hbg: #242424; --hfg: #E6E6E6; --hbd: #E6E6E6; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Event tech</span></div>
+<div class="rv-row-cpg" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><span style="font-size: 13px; font-weight: 600; margin-right: 4px">CPG &amp; e-commerce</span><span class="rv-pill rv-cpg" style="--i: 8; --hbg: #F7C9D4; --hfg: #2747A8; --hbd: #2747A8; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Longevity</span><span class="rv-pill rv-cpg" style="--i: 9; --hbg: #FBF3C4; --hfg: #C42E26; --hbd: #C42E26; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Beauty</span><span class="rv-pill rv-cpg" style="--i: 10; --hbg: #CFE3F4; --hfg: #25764A; --hbd: #25764A; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Apparel</span><span class="rv-pill rv-cpg" style="--i: 11; --hbg: #E4D8F6; --hfg: #5A3A9E; --hbd: #5A3A9E; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Nutrition</span><span class="rv-pill rv-cpg" style="--i: 12; --hbg: #FFD9BC; --hfg: #8A3B12; --hbd: #8A3B12; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Food &amp; beverage</span><span class="rv-pill rv-cpg" style="--i: 13; --hbg: #CDEFE5; --hfg: #0F6E64; --hbd: #0F6E64; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Personal care</span><span class="rv-pill rv-cpg" style="--i: 14; --hbg: #1F2A6B; --hfg: #C9F25A; --hbd: #1F2A6B; border: 1px solid rgba(42,26,18,0.35); border-radius: 999px; padding: 5px 13px; font-size: 13px">Sport</span></div>
+</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin-top: 72px">
+<div class="rv-rule" style="border-top: 1px solid #2A1A12; padding-top: 20px">
+<strong style="display: block; font-family: 'Fraunces', serif; font-weight: 400; font-size: 26px; margin-bottom: 6px">Commercially minded</strong>
+<span style="font-size: 15px; color: #6B5446">We connect the numbers to the decisions behind them.</span>
+</div>
+<div class="rv-rule" style="border-top: 1px solid #2A1A12; padding-top: 20px">
+<strong style="display: block; font-family: 'Fraunces', serif; font-weight: 400; font-size: 26px; margin-bottom: 6px">Built around you</strong>
+<span style="font-size: 15px; color: #6B5446">Support shaped to your stage, goals and real priorities.</span>
+</div>
+<div class="rv-rule" style="border-top: 1px solid #2A1A12; padding-top: 20px">
+<strong style="display: block; font-family: 'Fraunces', serif; font-weight: 400; font-size: 26px; margin-bottom: 6px">In it together</strong>
+<span style="font-size: 15px; color: #6B5446">A thoughtful partner, not another report in your inbox.</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: #3A1F14; color: #EE9A6E">
+<div style="max-width: 1280px; margin: 0 auto; padding: 120px 32px 80px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-end">
+<div style="flex: 999 1 560px; min-width: 0">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">[ Start a conversation ]</p>
+<h2 style="margin: 0 0 24px; font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(56px, 7.6vw, 110px); line-height: 0.96; letter-spacing: -0.03em">What are you<br><em style="font-style: italic">building?</em></h2>
+<p style="margin: 0 0 36px; font-size: 18px; color: #F2C9A8; max-width: 480px">Whether you have a clear brief or are still working out what comes next, we'd like to hear about it.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
+<a href="https://calendar.app.google/dSJSgatVP6UTkHUt9" target="_blank" rel="noopener" style="background: #EE9A6E; color: #3A1F14; padding: 15px 26px; border-radius: 999px; font-size: 15px; display: inline-flex; gap: 10px">Talk to Row <svg aria-hidden="true" viewBox="0 0 16 16" style="width:0.95em;height:0.95em;vertical-align:-0.1em;flex:none" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+</div>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; border-top: 1px solid rgba(238,154,110,0.4)">
+<p style="margin: 18px 0 6px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">[ Row Ventures ]</p>
+<a href="mailto:hello@row-ventures.com" style="display: block; padding: 14px 0; border-bottom: 1px solid rgba(238,154,110,0.25); font-family: 'Fraunces', serif; font-size: 24px">hello@row-ventures.com</a>
+<a href="#services" style="display: block; padding: 14px 0; border-bottom: 1px solid rgba(238,154,110,0.25); font-family: 'Fraunces', serif; font-size: 24px">Explore services</a>
+</div>
+</div>
+<footer style="max-width: 1280px; margin: 0 auto; padding: 28px 32px; border-top: 1px solid rgba(238,154,110,0.25); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; font-size: 13px; color: #F2C9A8">
+<span style="font-family: 'Fraunces', serif; font-size: 20px; color: #EE9A6E">Row Ventures</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 20px">
+<a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+</nav>
+<span>© 2026 Row Ventures</span>
+</footer>
+</section>
+
+</div>
+<script>
+(function(){var sec=document.getElementById('rv-story');if(!sec)return;var cell=sec.querySelector('.rv-cell'),hover=false;
+function put(gx,gy){cell.style.transform='translate('+(gx-0.5)+'px,'+(gy-0.5)+'px)'}
+sec.addEventListener('mousemove',function(e){hover=true;var r=sec.getBoundingClientRect();put(Math.floor((e.clientX-r.left)/96)*96,Math.floor((e.clientY-r.top)/36)*36)});
+sec.addEventListener('mouseleave',function(){hover=false});
+function hop(){if(hover)return;var cols=Math.max(Math.floor(sec.clientWidth/96),4),rows=Math.max(Math.floor(sec.clientHeight/36),4);
+var c=Math.random()<.5?1+Math.floor(Math.random()*2):cols-3+Math.floor(Math.random()*2);put(c*96,(1+Math.floor(Math.random()*(rows-2)))*36)}
+put(96,72);if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))setInterval(hop,1800);})();
+</script>
+</body>
 </html>
